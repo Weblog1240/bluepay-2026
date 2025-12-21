@@ -50,7 +50,7 @@ const ChatBot = () => {
     }
     
     if (message.includes('support') || message.includes('help') || message.includes('contact')) {
-      return 'You can reach our support team via:\n• Email: Jnanpyal70@gmail.com\n• Telegram: https://t.me/+nf3sGnOADVRiMDI0\n• WhatsApp: https://whatsapp.com/channel/0029VbAXljcFCCoUtysdNd3z\n• Live chat through our Telegram';
+      return 'You can reach our support team via:\n• Email: onlineincomingacademy15@gmail.com\n• Telegram: https://t.me/+nf3sGnOADVRiMDI0\n• WhatsApp: https://whatsapp.com/channel/0029VbAXljcFCCoUtysdNd3z\n• Live chat through our Telegram';
     }
     
     if (message.includes('registration') || message.includes('account') || message.includes('sign up')) {
@@ -73,7 +73,7 @@ const ChatBot = () => {
       return 'You can download the BluePay mobile app from our website or use the web version. Both offer the same great features and security.';
     }
     
-    return 'Thank you for your question! For detailed assistance, please contact our support team at Jnanpyal70@gmail.com or join our Telegram channel at https://t.me/+nf3sGnOADVRiMDI0.';
+    return 'Thank you for your question! For detailed assistance, please contact our support team at onlineincomingacademy15@gmail.com or join our Telegram channel at https://t.me/+nf3sGnOADVRiMDI0.';
   };
 
   const handleSendMessage = () => {
