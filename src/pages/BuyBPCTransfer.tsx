@@ -97,7 +97,7 @@ const BuyBPCTransfer = () => {
 
         <div className="mb-4 border-t pt-4">
           <p className="text-gray-500 text-sm">Bank Name</p>
-          <p className="text-2xl font-bold">MOMO PSB</p>
+          <p className="text-2xl font-bold">MOMO</p>
         </div>
 
         <div className="mb-4 border-t pt-4">
