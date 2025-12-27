@@ -33,7 +33,7 @@ const BuyBPC = () => {
         <h1 className="text-xl font-bold">Buy BPC Code</h1>
       </header>
 
-      {showTypewriter && userData && <div className="p-3 border-l-4 border-blue-500 mx-4 mt-3 rounded bg-green-950">
+      {showTypewriter && userData && <div className="p-3 border-l-4 border-blue-500 mx-4 mt-3 rounded bg-[#111c31]">
           <p className="text-blue-800 text-sm">
             Welcome back, <TypewriterText text={userData.fullName || "User"} speed={100} className="font-semibold" />
           </p>
@@ -45,12 +45,12 @@ const BuyBPC = () => {
       <div className="flex-1 p-4 bg-[#0f1c34]">
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="text-base text-gray-600 mb-1 block">Amount</label>
-            <Input type="text" value={amount} readOnly className="text-base py-3 border-2 border-gray-300 rounded-lg bg-gray-100" placeholder="\u20A66.200" />
+            <label className="text-base mb-1 block bg-secondary-foreground text-secondary-foreground">Amount</label>
+            <Input value={amount} readOnly className="text-base py-3 border-2 border-gray-300 rounded-lg bg-gray-100" type="number" placeholder="6.200" />
           </div>
           
           <div>
-            <label className="text-base text-gray-600 mb-1 block">Full Name</label>
+            <label className="text-base text-gray-600 mb-1 block bg-secondary">Full Name</label>
             <Input type="text" value={fullName} onChange={e => setFullName(e.target.value)} className="text-base py-3 border-2 border-gray-300 rounded-lg" placeholder="Enter your full name" />
           </div>
           
@@ -59,7 +59,7 @@ const BuyBPC = () => {
             <Input type="email" value={email} onChange={e => setEmail(e.target.value)} className="text-base py-3 border-2 border-gray-300 rounded-lg" placeholder="email@example.com" />
           </div>
           
-          <Button type="submit" disabled={isSubmitting} className="w-full bg-blue-600 hover:bg-blue-700 text-lg py-4">
+          <Button type="submit" disabled={isSubmitting} className="w-full bg-blue-600 hover:bg-blue-700 text-lg py-4 border-muted border-2 rounded-full shadow-inner font-sans opacity-90">
             {isSubmitting ? "Processing..." : "Pay"}
           </Button>
           
