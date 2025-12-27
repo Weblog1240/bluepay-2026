@@ -43,13 +43,13 @@ const BuyBPCPayment = () => {
         <button className="text-lg">
           <span className="sr-only">Menu</span>
         </button>
-        <h1 className="text-xl font-semibold">BLUEPAY</h1>
+        <h1 className="text-xl font-semibold text-primary">BLUEPAY</h1>
         <div className="w-6 h-6">
           <span className="sr-only">Notifications</span>
         </div>
       </header>
 
-      <div className="bg-gray-200 py-3 px-4 flex items-center justify-between">
+      <div className="py-3 px-4 flex items-center justify-between bg-muted">
         <div className="flex items-center">
           <button onClick={() => navigate(-1)} className="mr-2 bg-secondary">
             <ArrowLeft size={20} />
