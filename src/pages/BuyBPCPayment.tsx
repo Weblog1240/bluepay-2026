@@ -66,7 +66,7 @@ const BuyBPCPayment = () => {
         <p className="text-gray-600 text-sm">BPC Code Purchase</p>
       </div>
 
-      <div className="bg-blue-50 mx-4 p-3 rounded-lg">
+      <div className="mx-4 p-3 rounded-lg bg-secondary">
         <h3 className="text-blue-700 text-base font-semibold mb-2">
           Instructions:
         </h3>
