@@ -81,13 +81,13 @@ const Dashboard = () => {
       <WelcomeOnboarding />
       <WithdrawalNotifications />
       <OpayNotificationBanner />
-      <Header className="text-secondary-foreground bg-sidebar-border" />
+      <Header className="text-secondary-foreground bg-[#11213b]" />
 
       <div className="p-3 space-y-3">
         <UserGreeting userData={userData} />
-        <BalanceCard balance={balance} className="bg-blue-950" />
-        <QuickActions className="bg-[#161f3b]" />
-        <MoreServices className="bg-[#172140]" />
+        <BalanceCard balance={balance} className="bg-[#0e1a35]" />
+        <QuickActions className="bg-[#12203b]" />
+        <MoreServices className="bg-[#0e1d34]" />
         <ImportantInformation />
         <RecentTransactions transactions={transactions} />
       </div>
