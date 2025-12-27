@@ -39,7 +39,7 @@ const BuyBPCPayment = () => {
           </div>
         </div>}
 
-      <header className="bg-[#222222] text-white py-3 px-4 flex justify-between items-center sticky top-0 z-10">
+      <header className="bg-[#222222] py-3 px-4 flex justify-between items-center sticky top-0 z-10 text-secondary-foreground">
         <button className="text-lg">
           <span className="sr-only">Menu</span>
         </button>
@@ -51,7 +51,7 @@ const BuyBPCPayment = () => {
 
       <div className="bg-gray-200 py-3 px-4 flex items-center justify-between">
         <div className="flex items-center">
-          <button onClick={() => navigate(-1)} className="mr-2">
+          <button onClick={() => navigate(-1)} className="mr-2 bg-secondary">
             <ArrowLeft size={20} />
           </button>
           <h2 className="text-lg font-bold">Bank Transfer</h2>
@@ -73,7 +73,7 @@ const BuyBPCPayment = () => {
         <ol className="list-decimal pl-4 text-blue-700 space-y-1 text-sm">
           <li>Copy the account details below</li>
           <li>Open your bank app and make a transfer</li>
-          <li>Return here and click "I have made this bank Transfer"</li>
+          <li className="text-secondary-foreground">Return here and click "I have made this bank Transfer"</li>
           <li>Wait for confirmation (usually within 3 minutes)</li>
         </ol>
       </div>
@@ -84,7 +84,7 @@ const BuyBPCPayment = () => {
           <div className="flex justify-between items-center">
             <p className="text-lg font-bold">NGN 6,200</p>
             <Button variant="default" size="sm" className="bg-blue-600 hover:bg-blue-700 flex items-center gap-1" onClick={() => handleCopy("6,200", "Amount")}>
-              <Copy size={14} />
+              <Copy size={14} className="text-secondary-foreground" />
               Copy
             </Button>
           </div>

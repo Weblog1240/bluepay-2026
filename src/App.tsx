@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -31,19 +30,18 @@ import Faq from "./pages/Faq";
 import Platform from "./pages/Platform";
 import EarnMore from "./pages/EarnMore";
 import TransactionHistory from "./pages/TransactionHistory";
-
 const queryClient = new QueryClient();
 
 // Theme management component
 const ThemeManager = () => {
-  const { themeMode } = useUserStore();
-  
+  const {
+    themeMode
+  } = useUserStore();
   useEffect(() => {
     const root = document.documentElement;
-    
+
     // Remove all theme classes first
     root.classList.remove('dark', 'light', 'system', 'device');
-    
     if (themeMode === 'dark') {
       root.classList.add('dark');
     } else if (themeMode === 'system') {
@@ -53,7 +51,7 @@ const ThemeManager = () => {
       } else {
         root.classList.add('light');
       }
-      
+
       // Add listener for system theme changes
       const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
       const handleChange = (e: MediaQueryListEvent) => {
@@ -65,10 +63,10 @@ const ThemeManager = () => {
           root.classList.add('light');
         }
       };
-      
+
       // Add listener
       mediaQuery.addEventListener('change', handleChange);
-      
+
       // Clean up
       return () => {
         mediaQuery.removeEventListener('change', handleChange);
@@ -80,12 +78,9 @@ const ThemeManager = () => {
       root.classList.add('light');
     }
   }, [themeMode]);
-  
   return null;
 };
-
-const App = () => (
-  <QueryClientProvider client={queryClient}>
+const App = () => <QueryClientProvider client={queryClient}>
     <ThemeManager />
     <Toaster />
     <Sonner />
@@ -105,7 +100,7 @@ const App = () => (
         <Route path="/account-upgrade" element={<AccountUpgrade />} />
         <Route path="/buy-bpc" element={<BuyBPC />} />
         <Route path="/buy-bpc/processing" element={<BuyBPCProcessing />} />
-        <Route path="/buy-bpc/payment" element={<BuyBPCPayment />} />
+        <Route path="/buy-bpc/payment" element={<BuyBPCPayment />} className="bg-secondary" />
         <Route path="/buy-bpc/verifying" element={<BuyBPCVerifying />} />
         <Route path="/buy-bpc/confirmation" element={<BuyBPCConfirmation />} />
         <Route path="/airtime" element={<AirtimePurchase />} />
@@ -120,7 +115,5 @@ const App = () => (
       </Routes>
       <ChatBot />
     </BrowserRouter>
-  </QueryClientProvider>
-);
-
+  </QueryClientProvider>;
 export default App;
