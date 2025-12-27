@@ -45,7 +45,7 @@ const QuickActions = () => {
         <div className="grid grid-cols-4 gap-2">
           {quickActions.map(action => {
           return <div key={action.id} className="flex flex-col items-center cursor-pointer" onClick={action.onClick}>
-                <div className={`h-10 w-10 ${action.bgColor} rounded-lg mb-1 flex items-center justify-center`}>
+                <div className="">
                   <span className="text-lg">{action.emoji}</span>
                 </div>
                 <p className="text-xs font-medium text-center text-secondary-foreground">{action.title}</p>

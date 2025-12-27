@@ -32,7 +32,7 @@ const MoreServices = () => {
       <div className="grid grid-cols-4 gap-2">
         {moreServices.map(service => {
         return <div key={service.id} className="flex flex-col items-center cursor-pointer" onClick={service.onClick}>
-              <div className={`h-10 w-10 ${service.bgColor} rounded-lg mb-1 flex items-center justify-center`}>
+              <div className="">
                 <span className="text-lg">{service.emoji}</span>
               </div>
               <p className="text-xs font-medium text-center text-secondary-foreground">{service.title}</p>
