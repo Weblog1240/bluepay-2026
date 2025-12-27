@@ -63,7 +63,7 @@ const BuyBPCPayment = () => {
 
       <div className="flex flex-col items-center p-4 mb-4">
         <h1 className="font-bold mb-1 text-sm text-secondary-foreground">NGN 6,200</h1>
-        <p className="text-gray-600 text-sm">BPC Code Purchase</p>
+        <p className="text-sm text-slate-400">BPC Code Purchase</p>
       </div>
 
       <div className="mx-4 p-3 rounded-lg bg-secondary">
