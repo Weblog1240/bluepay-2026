@@ -83,7 +83,7 @@ const Dashboard = () => {
       <OpayNotificationBanner />
       <Header className="text-secondary-foreground bg-[#0c1422]" />
 
-      <div className="p-3 space-y-3">
+      <div className="p-3 space-y-3 bg-muted">
         <UserGreeting userData={userData} />
         <BalanceCard balance={balance} className="bg-[#0f182e]" />
         <QuickActions className="bg-secondary" />
