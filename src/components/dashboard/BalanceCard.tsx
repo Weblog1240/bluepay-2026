@@ -14,7 +14,7 @@ const BalanceCard = ({
     balanceVisible,
     toggleBalanceVisibility
   } = useUserStore();
-  return <div className="bg-bluepay-blue text-white rounded-xl p-3 mb-2">
+  return <div className="text-white rounded-xl p-3 mb-2 bg-muted">
       <p className="text-sm mb-1 text-slate-400">Available Balance</p>
       <div className="flex justify-between items-center mb-2">
         <div className="flex items-center gap-2">
