@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Loader2 } from "lucide-react";
+import { ArrowLeft, Loader2, Send } from "lucide-react";
 import { useUserStore } from "../stores/userStore";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
@@ -138,41 +138,46 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-bluepay-blue text-white">
-      <header className="p-3">
-        <button onClick={() => navigate("/")} className="flex items-center text-white">
-          <ArrowLeft className="h-5 w-5 mr-2" />
+    <div className="min-h-screen flex flex-col bg-background text-foreground">
+      <header className="p-4 flex items-center justify-between">
+        <button onClick={() => navigate("/")} className="flex items-center text-foreground">
+          <ArrowLeft className="h-5 w-5" />
         </button>
-        <div className="absolute top-3 right-3">
-          <span className="text-white cursor-pointer text-sm" onClick={handleHelpClick}>You Need Help?</span>
-        </div>
+        <span 
+          className="text-primary cursor-pointer text-sm font-medium" 
+          onClick={handleHelpClick}
+        >
+          You Need Help?
+        </span>
       </header>
 
-      <div className="flex-1 flex flex-col justify-center p-4">
+      <div className="flex-1 flex flex-col justify-center px-6 pb-8">
         <div className="max-w-md w-full mx-auto">
-          <h1 className="text-2xl font-bold mb-2 text-white text-center">BLUEPAY</h1>
-          <h2 className="text-xl font-bold mb-3 text-white">Welcome!</h2>
+          <h1 className="text-2xl font-bold mb-6 text-primary text-center tracking-wider">
+            BLUEPAY
+          </h1>
+          <h2 className="text-2xl font-bold mb-2 text-foreground">Welcome!</h2>
           
           {referralCode && (
-            <div className="bg-green-500/20 border border-green-400 rounded-lg p-2 mb-3">
-              <p className="text-green-100 text-xs">
+            <div className="bg-accent/20 border border-accent rounded-lg p-3 mb-4">
+              <p className="text-accent text-sm">
                 🎉 Referral code detected: <span className="font-bold">{referralCode}</span>
               </p>
-              <p className="text-green-100 text-xs">Your referrer will be credited when you register!</p>
+              <p className="text-accent/80 text-xs">Your referrer will be credited when you register!</p>
             </div>
           )}
           
-          <p className="text-gray-100 mb-4 text-sm">
+          <p className="text-muted-foreground mb-6 text-sm leading-relaxed">
             Get your account ready and instantly start buying, selling airtime and data online and start paying all your bills in cheaper price.
           </p>
 
-          <form onSubmit={handleSubmit} className="space-y-3">
+          <form onSubmit={handleSubmit} className="space-y-4">
             <Input
               name="fullName"
               placeholder="Your Full Name"
               value={formData.fullName}
               onChange={handleChange}
-              className="rounded-md bg-white/10 border-white/20 px-3 py-2 text-white placeholder:text-gray-300"
+              className="rounded-xl bg-input border-border px-4 py-3 text-foreground placeholder:text-muted-foreground h-14"
               required
             />
             <Input
@@ -181,7 +186,7 @@ const Register = () => {
               placeholder="Your Email"
               value={formData.email}
               onChange={handleChange}
-              className="rounded-md bg-white/10 border-white/20 px-3 py-2 text-white placeholder:text-gray-300"
+              className="rounded-xl bg-input border-border px-4 py-3 text-foreground placeholder:text-muted-foreground h-14"
               required
             />
             <Input
@@ -190,39 +195,39 @@ const Register = () => {
               placeholder="Password"
               value={formData.password}
               onChange={handleChange}
-              className="rounded-md bg-white/10 border-white/20 px-3 py-2 text-white placeholder:text-gray-300"
+              className="rounded-xl bg-input border-border px-4 py-3 text-foreground placeholder:text-muted-foreground h-14"
               required
             />
             <div className="relative">
-              <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-300 text-sm">+234</span>
+              <span className="absolute left-4 top-1/2 transform -translate-y-1/2 text-muted-foreground text-sm">+234</span>
               <Input
                 name="phoneNumber"
                 type="tel"
                 placeholder="Phone Number"
                 value={formData.phoneNumber}
                 onChange={handleChange}
-                className="rounded-md bg-white/10 border-white/20 pl-12 py-2 text-white placeholder:text-gray-300"
+                className="rounded-xl bg-input border-border pl-14 pr-4 py-3 text-foreground placeholder:text-muted-foreground h-14"
                 required
               />
             </div>
 
             <Input
               name="enteredReferralCode"
-              placeholder="Referral Code (Optional)"
+              placeholder="REFERRAL CODE (OPTIONAL)"
               value={formData.enteredReferralCode}
               onChange={handleChange}
-              className="rounded-md bg-white/10 border-white/20 px-3 py-2 text-white placeholder:text-gray-300 uppercase"
+              className="rounded-xl bg-input border-border px-4 py-3 text-foreground placeholder:text-muted-foreground h-14 uppercase"
               maxLength={6}
             />
 
-            <p className="text-xs text-gray-200">
+            <p className="text-xs text-muted-foreground">
               Any further actions indicates that you agree with our terms & conditions!
             </p>
 
             <Button
               type="submit"
               disabled={isLoading}
-              className="w-full bg-white hover:bg-gray-100 text-bluepay-blue py-2 font-bold rounded-full disabled:opacity-50"
+              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-4 font-semibold rounded-xl h-14 text-base"
             >
               {isLoading ? (
                 <>
@@ -236,16 +241,24 @@ const Register = () => {
           </form>
 
           <div className="mt-6 text-center">
-            <span className="text-gray-200 text-sm">Already have an account? </span>
+            <span className="text-muted-foreground text-sm">Already have an account? </span>
             <button 
               onClick={() => navigate("/pin")} 
-              className="text-white font-medium underline text-sm"
+              className="text-primary font-medium text-sm"
             >
               Sign in
             </button>
           </div>
         </div>
       </div>
+
+      {/* Floating chat button */}
+      <button 
+        onClick={handleHelpClick}
+        className="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-accent flex items-center justify-center shadow-lg hover:bg-accent/90 transition-colors"
+      >
+        <Send className="w-6 h-6 text-accent-foreground" />
+      </button>
     </div>
   );
 };

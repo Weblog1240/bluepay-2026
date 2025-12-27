@@ -89,13 +89,13 @@ const Dashboard = () => {
   }, [userData]);
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-100 pb-16 relative">
+    <div className="min-h-screen flex flex-col bg-background pb-16 relative">
       <WelcomeOnboarding />
       <WithdrawalNotifications />
       <OpayNotificationBanner />
       <Header />
 
-      <div className="p-2 space-y-2">
+      <div className="p-3 space-y-3">
         <UserGreeting userData={userData} />
         <BalanceCard balance={balance} />
         <QuickActions />

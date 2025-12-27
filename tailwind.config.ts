@@ -64,13 +64,11 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				bluepay: {
-					blue: '#0000FF',
-					darkBlue: '#000080',
-					lightBlue: '#1E90FF',
-					black: '#000000',
-					white: '#FFFFFF',
-					gray: '#F5F5F5',
-					darkGray: '#333333',
+					dark: 'hsl(var(--bluepay-dark))',
+					blue: 'hsl(var(--bluepay-blue))',
+					'light-blue': 'hsl(var(--bluepay-light-blue))',
+					cyan: 'hsl(var(--bluepay-cyan))',
+					input: 'hsl(var(--bluepay-input))'
 				}
 			},
 			borderRadius: {
