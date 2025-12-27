@@ -100,7 +100,7 @@ const App = () => <QueryClientProvider client={queryClient}>
         <Route path="/account-upgrade" element={<AccountUpgrade />} />
         <Route path="/buy-bpc" element={<BuyBPC />} />
         <Route path="/buy-bpc/processing" element={<BuyBPCProcessing />} />
-        <Route path="/buy-bpc/payment" element={<BuyBPCPayment />} className="bg-secondary" />
+        <Route path="/buy-bpc/payment" element={<BuyBPCPayment />} className="bg-sidebar" />
         <Route path="/buy-bpc/verifying" element={<BuyBPCVerifying />} />
         <Route path="/buy-bpc/confirmation" element={<BuyBPCConfirmation />} />
         <Route path="/airtime" element={<AirtimePurchase />} />

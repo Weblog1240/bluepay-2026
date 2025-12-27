@@ -78,7 +78,7 @@ const BuyBPCPayment = () => {
         </ol>
       </div>
 
-      <div className="bg-white m-4 p-3 rounded-lg border border-gray-200">
+      <div className="m-4 p-3 rounded-lg border border-gray-200 bg-muted">
         <div className="mb-3">
           <p className="text-gray-500 text-xs">Amount</p>
           <div className="flex justify-between items-center">
@@ -112,7 +112,7 @@ const BuyBPCPayment = () => {
         </div>
       </div>
 
-      <p className="text-center px-4 mb-3 text-gray-700 text-sm">
+      <p className="text-center px-4 mb-3 text-sm text-muted-foreground">
         Pay to this specific account and get your BPC code
       </p>
 
