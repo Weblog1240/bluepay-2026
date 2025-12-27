@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from "react";
 import { useUserStore } from "../stores/userStore";
 import Header from "../components/dashboard/Header";
@@ -13,54 +12,45 @@ import ImportantInformation from "../components/dashboard/ImportantInformation";
 import WithdrawalNotifications from "../components/dashboard/WithdrawalNotifications";
 import WelcomeOnboarding from "../components/dashboard/WelcomeOnboarding";
 import DraggableBadge from "../components/dashboard/DraggableBadge";
-
 const Dashboard = () => {
-  const { userData, balance, transactions } = useUserStore();
+  const {
+    userData,
+    balance,
+    transactions
+  } = useUserStore();
   const hasPlayedWelcome = useRef(false);
-
   useEffect(() => {
     const playWelcomeMessage = () => {
       if (hasPlayedWelcome.current || !userData?.fullName) return;
-      
+
       // Check if speech synthesis is supported
       if (!('speechSynthesis' in window)) {
         return;
       }
-
       hasPlayedWelcome.current = true;
-
       const welcomeText = `Hi ${userData.fullName}, welcome to bluepay to the latest version of bluepay, where you can make 200,000 naira daily just by purchasing your BPC code for the sum of 6,200 naira, kindly click on the BPC button to purchase your code directly from the application, have a nice day.`;
-
       const speak = () => {
         // Cancel any ongoing speech
         window.speechSynthesis.cancel();
-        
         const utterance = new SpeechSynthesisUtterance(welcomeText);
-        
+
         // Configure speech settings for mobile compatibility
         utterance.rate = 0.9;
         utterance.pitch = 1;
         utterance.volume = 1;
         utterance.lang = 'en-US';
-        
+
         // Get voices and select the best one
         const voices = window.speechSynthesis.getVoices();
-        
+
         // For mobile devices, prefer specific voices
-        const preferredVoice = voices.find(voice => 
-          voice.lang.includes('en') && 
-          (voice.name.includes('Female') || 
-           voice.name.includes('Samantha') ||
-           voice.name.includes('Google') ||
-           voice.name.includes('Microsoft'))
-        ) || voices.find(voice => voice.lang.includes('en')) || voices[0];
-        
+        const preferredVoice = voices.find(voice => voice.lang.includes('en') && (voice.name.includes('Female') || voice.name.includes('Samantha') || voice.name.includes('Google') || voice.name.includes('Microsoft'))) || voices.find(voice => voice.lang.includes('en')) || voices[0];
         if (preferredVoice) {
           utterance.voice = preferredVoice;
         }
 
         // Error handling for mobile
-        utterance.onerror = (event) => {
+        utterance.onerror = event => {
           // Silent fail for speech errors
         };
 
@@ -87,27 +77,23 @@ const Dashboard = () => {
     const timer = setTimeout(playWelcomeMessage, 1000);
     return () => clearTimeout(timer);
   }, [userData]);
-
-  return (
-    <div className="min-h-screen flex flex-col bg-background pb-16 relative">
+  return <div className="min-h-screen flex flex-col bg-background pb-16 relative">
       <WelcomeOnboarding />
       <WithdrawalNotifications />
       <OpayNotificationBanner />
-      <Header />
+      <Header className="text-secondary-foreground bg-sidebar-border" />
 
       <div className="p-3 space-y-3">
         <UserGreeting userData={userData} />
-        <BalanceCard balance={balance} />
-        <QuickActions />
-        <MoreServices />
+        <BalanceCard balance={balance} className="bg-blue-950" />
+        <QuickActions className="bg-[#161f3b]" />
+        <MoreServices className="bg-[#172140]" />
         <ImportantInformation />
         <RecentTransactions transactions={transactions} />
       </div>
       
       <BottomNavigation />
       <DraggableBadge />
-    </div>
-  );
+    </div>;
 };
-
 export default Dashboard;
