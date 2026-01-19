@@ -75,7 +75,7 @@ const ImportantInformation = () => {
           >
             {slide.type === 'image' ? (
               <Card 
-                className={`w-full h-full p-0 overflow-hidden shadow-lg ${
+                className={`w-full h-full p-0 overflow-hidden shadow-lg border-border ${
                   slide.clickable ? 'cursor-pointer hover:shadow-xl transition-shadow' : ''
                 }`}
                 onClick={() => handleImageClick(slide.clickable)}
@@ -87,11 +87,11 @@ const ImportantInformation = () => {
                 />
               </Card>
             ) : (
-              <Card className="bg-gradient-to-r from-blue-500 to-purple-600 w-full h-full p-3 text-white shadow-lg flex flex-col">
-                <h3 className="text-base font-bold mb-2 text-white">Important Information</h3>
+              <Card className="bg-gradient-to-r from-primary to-accent w-full h-full p-3 text-primary-foreground shadow-lg flex flex-col border-border">
+                <h3 className="text-base font-bold mb-2 text-primary-foreground">Important Information</h3>
                 
-                <div className="bg-white/20 rounded-lg p-2 backdrop-blur-sm flex-1 flex flex-col">
-                  <h4 className="text-sm font-semibold mb-2 text-white">How to Buy BPC Code</h4>
+                <div className="bg-background/20 rounded-lg p-2 backdrop-blur-sm flex-1 flex flex-col">
+                  <h4 className="text-sm font-semibold mb-2 text-primary-foreground">How to Buy BPC Code</h4>
                   
                   <div className="space-y-2 flex-1">
                     {steps.map((step, stepIndex) => (
@@ -105,19 +105,19 @@ const ImportantInformation = () => {
                       >
                         <div className={`w-4 h-4 rounded-full flex items-center justify-center mr-2 transition-all duration-500 flex-shrink-0 ${
                           stepIndex === currentStep 
-                            ? 'bg-yellow-400 text-blue-900 shadow-lg' 
-                            : 'bg-white/30 text-white'
+                            ? 'bg-accent text-accent-foreground shadow-lg' 
+                            : 'bg-primary-foreground/30 text-primary-foreground'
                         }`}>
                           <span className="text-xs font-bold">{stepIndex + 1}</span>
                         </div>
                         <p className={`text-xs transition-all duration-500 ${
-                          stepIndex === currentStep ? 'font-semibold text-yellow-100' : 'text-white/90'
+                          stepIndex === currentStep ? 'font-semibold text-accent' : 'text-primary-foreground/90'
                         }`}>
                           {stepIndex === currentStep ? (
                             <TypewriterText 
                               text={currentStepText} 
                               speed={80}
-                              className="text-yellow-100"
+                              className="text-accent"
                             />
                           ) : (
                             step
@@ -132,7 +132,7 @@ const ImportantInformation = () => {
                       <div
                         key={stepIndex}
                         className={`w-1 h-1 rounded-full transition-all duration-300 ${
-                          stepIndex === currentStep ? 'bg-yellow-400' : 'bg-white/40'
+                          stepIndex === currentStep ? 'bg-accent' : 'bg-primary-foreground/40'
                         }`}
                       />
                     ))}
@@ -150,7 +150,7 @@ const ImportantInformation = () => {
           <div
             key={index}
             className={`w-2 h-2 rounded-full transition-all duration-300 ${
-              index === currentSlide ? 'bg-blue-500' : 'bg-gray-300'
+              index === currentSlide ? 'bg-primary' : 'bg-muted'
             }`}
           />
         ))}
