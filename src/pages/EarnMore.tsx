@@ -235,18 +235,18 @@ const EarnMore = () => {
       <div className="p-5 space-y-6">
         {/* Stats Overview */}
         <div className="grid grid-cols-3 gap-3">
-          <Card className="p-4 text-center">
+          <Card className="p-4 text-center bg-card border-border">
             <Users className="h-6 w-6 mx-auto mb-2 text-primary" />
             <p className="text-2xl font-bold text-foreground">{referralCount}</p>
             <p className="text-xs text-muted-foreground">Referrals</p>
           </Card>
-          <Card className="p-4 text-center">
-            <Wallet className="h-6 w-6 mx-auto mb-2 text-green-600" />
+          <Card className="p-4 text-center bg-card border-border">
+            <Wallet className="h-6 w-6 mx-auto mb-2 text-green-500" />
             <p className="text-2xl font-bold text-foreground">₦{formatCurrency(referralEarnings)}</p>
             <p className="text-xs text-muted-foreground">Earnings</p>
           </Card>
-          <Card className="p-4 text-center">
-            <TrendingUp className="h-6 w-6 mx-auto mb-2 text-blue-600" />
+          <Card className="p-4 text-center bg-card border-border">
+            <TrendingUp className="h-6 w-6 mx-auto mb-2 text-primary" />
             <p className="text-2xl font-bold text-foreground">₦{formatCurrency(referralRate)}</p>
             <p className="text-xs text-muted-foreground">Per Referral</p>
           </Card>
@@ -269,10 +269,10 @@ const EarnMore = () => {
         )}
 
         {/* Referral Details */}
-        <Card className="p-5">
+        <Card className="p-5 bg-card border-border">
           <div className="flex items-center mb-4">
-            <div className="h-12 w-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
-              <Users className="h-6 w-6 text-green-600" />
+            <div className="h-12 w-12 bg-green-500/20 rounded-full flex items-center justify-center mr-4">
+              <Users className="h-6 w-6 text-green-500" />
             </div>
             <div>
               <h3 className="text-lg font-semibold">Referral Program</h3>
@@ -319,9 +319,9 @@ const EarnMore = () => {
               </Button>
             </div>
             
-            <div className="bg-blue-50 dark:bg-blue-950/30 p-4 rounded-lg">
+            <div className="bg-primary/10 p-4 rounded-lg">
               <div className="flex items-start gap-3">
-                <CheckCircle className="h-5 w-5 text-blue-600 mt-0.5" />
+                <CheckCircle className="h-5 w-5 text-primary mt-0.5" />
                 <div>
                   <h5 className="font-semibold text-sm">How it works:</h5>
                   <ul className="text-sm text-muted-foreground mt-1 space-y-1">
@@ -425,8 +425,8 @@ const EarnMore = () => {
         {taxJoinCompletedAt && (
           <Card>
             <CardContent className="pt-6">
-              <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-                <p className="text-sm text-green-800 font-medium">
+              <div className="bg-green-500/20 border border-green-500/30 rounded-lg p-4">
+                <p className="text-sm text-green-500 font-medium">
                   ✨ Bonus Active! +₦10,000 for 24hrs
                 </p>
               </div>
